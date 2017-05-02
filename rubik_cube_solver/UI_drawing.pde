@@ -23,4 +23,13 @@ void update_box(){
     if (i>0 && i<5) rect((i-1)*3*box_size, 3*box_size, 3*box_size, 3*box_size);
     if (i==5)  rect(3*box_size, 6*box_size, 3*box_size, 3*box_size);
    }
+   textAlign(CENTER, CENTER);
+   fill(0);
+   textSize(30);
+   
+   for (int i=0; i<=5; i++) {
+    if (i==0)  text("U", 3*box_size, 0, 3*box_size, 3*box_size);
+    if (i>0 && i<5) text("ULFRBD".charAt(i)+"",(i-1)*3*box_size, 3*box_size, 3*box_size, 3*box_size);
+    if (i==5)  text("D", 3*box_size, 6*box_size, 3*box_size, 3*box_size);
+   }
 }

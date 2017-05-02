@@ -85,10 +85,96 @@ void D_CW() {
   update_box();
 }
 
-// rotate the top pattern anti-clockwise
+// rotate the bottom pattern anti-clockwise
 void D_ACW() {
   facing_bottom();
   F_ACW();
   facing_top();
   update_box();
+}
+
+// rotate the bottom pattern clockwise
+void B_CW() {
+  facing_back();
+  F_CW();
+  facing_back();
+  update_box();
+}
+
+// rotate the bottom pattern anti-clockwise
+void B_ACW() {
+  facing_back();
+  F_ACW();
+  facing_back();
+  update_box();
+}
+
+void do_formula(String formula) {
+  String step[] = formula.split(" ");
+  for (int i=0; i<step.length; i++) {
+    switch(step[i].charAt(0)) {
+    case 'L':
+      if (step[i].length()==1) {//which mean "L"
+        L_CW();
+      } else if (step[i].charAt(1)=='\'') {//which mean "L'"
+        L_ACW();
+      } else if (step[i].charAt(1)=='2') {//which mean "L2"
+        L_CW();
+        L_CW();
+      }
+      break;
+    case 'R':
+      if (step[i].length()==1) {//which mean "R"
+        R_CW();
+      } else if (step[i].charAt(1)=='\'') {//which mean "R'"
+        R_ACW();
+      } else if (step[i].charAt(1)=='2') {//which mean "R2"
+        R_CW();
+        R_CW();
+      }
+      break;
+    case 'U':
+      if (step[i].length()==1) {//which mean "U"
+        U_CW();
+      } else if (step[i].charAt(1)=='\'') {//which mean "U'"
+        U_ACW();
+      } else if (step[i].charAt(1)=='2') {//which mean "U2"
+        U_CW();
+        U_CW();
+      }
+      break;
+    case 'D':
+      if (step[i].length()==1) {//which mean "D"
+        D_CW();
+      } else if (step[i].charAt(1)=='\'') {//which mean "D'"
+        D_ACW();
+      } else if (step[i].charAt(1)=='2') {//which mean "D2"
+        D_CW();
+        D_CW();
+      }
+      break;
+    case 'F':
+      if (step[i].length()==1) {//which mean "F"
+        F_CW();
+      } else if (step[i].charAt(1)=='\'') {//which mean "F'"
+        F_ACW();
+      } else if (step[i].charAt(1)=='2') {//which mean "F2"
+        F_CW();
+        F_CW();
+      }
+      break;
+    case 'B':
+     if (step[i].length()==1) {//which mean "B"
+       B_CW();
+     } else if (step[i].charAt(1)=='\'') {//which mean "B'"
+       B_ACW();
+     } else if (step[i].charAt(1)=='2') {//which mean "B2"
+       B_CW();
+       B_CW();
+     }
+     break;
+    default:
+      break;
+    }
+  }
 }
