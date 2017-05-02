@@ -58,3 +58,9 @@ void facing_left() {
   for (int i=0; i<=2; i++) facing_right();
   update_box();
 }
+
+//facing the back pattern to front
+void facing_back() {
+  for (int i=0; i<2; i++) facing_top();
+  update_box();
+}
